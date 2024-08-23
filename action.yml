@@ -19,9 +19,3 @@ runs:
       run: |
         docker cp ${{ inputs.app_dir }}/ puppeteer_container:/
       shell: bash
-    - name: List files in Docker container
-      run: docker exec puppeteer_container ls /
-      shell: bash
-    - name: Run index.js
-      run: docker exec puppeteer_container bash -c "node index.js"
-      shell: bash
