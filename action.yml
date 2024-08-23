@@ -21,7 +21,7 @@ runs:
     - name: Copy Node.js app files
       run: |
         docker cp ${{ inputs.package_json_dir }}/package.json puppeteer_container:/home/pptruser
-        docker cp ${{ inputs.index_file_dir }}/* puppeteer_container:/home/pptruser
+        docker cp ${{ inputs.index_file_dir }} puppeteer_container:/home/pptruser
       shell: bash
     - name: Install Node.js dependencies
       run: docker exec puppeteer_container bash -c "cd /home/pptruser && npm install --production"
