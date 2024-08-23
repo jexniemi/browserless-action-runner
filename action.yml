@@ -17,6 +17,9 @@ runs:
     - name: Run Docker container
       run: docker run --init --cap-add=SYS_ADMIN --rm -d --name puppeteer_container ghcr.io/puppeteer/puppeteer:16.1.0
       shell: bash
+    - name: Create /app directory in Docker container
+      run: docker exec puppeteer_container mkdir -p /app
+      shell: bash
     - name: Copy Node.js app files
       run: |
         docker cp "${{ inputs.package_json_dir }}/package.json" puppeteer_container:/app
