@@ -13,7 +13,7 @@ runs:
       run: docker pull ghcr.io/puppeteer/puppeteer:23.1.0
       shell: bash
     - name: Run Docker container
-      run: docker run --init --cap-add=SYS_ADMIN --rm -d --name puppeteer_container ghcr.io/puppeteer/puppeteer:23.1.0
+      run: docker run --init --cap-add=SYS_ADMIN --rm --name puppeteer_container ghcr.io/puppeteer/puppeteer:23.1.0 &
       shell: bash
     - name: Print Docker logs
       run: docker logs puppeteer_container
