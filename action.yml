@@ -19,7 +19,7 @@ runs:
       shell: bash
     - name: Copy Node.js app files
       run: |
-        docker cp ${{ inputs.package_json_dir }}/package.json puppeteer_container:/app
+        docker cp "${{ inputs.package_json_dir }}/package.json" puppeteer_container:/app
         docker cp ${{ inputs.index_file_dir }}/* puppeteer_container:/app
       shell: bash
     - name: Install Node.js dependencies
