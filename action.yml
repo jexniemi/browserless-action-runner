@@ -2,11 +2,8 @@ name: puppeteer-master
 description: Run Puppeteer web scraper in headless mode with Node.js
 author: jexniemi
 inputs:
-  package_json_dir:
+  app_dir:
     description: 'Directory of package.json'
-    required: true
-  index_file_dir:
-    description: 'Directory of index.js'
     required: true
     
 runs:
@@ -20,11 +17,7 @@ runs:
       shell: bash
     - name: Copy Node.js app files
       run: |
-        docker cp ${{ inputs.package_json_dir }}/package.json puppeteer_container:/
-        docker cp ${{ inputs.index_file_dir }} puppeteer_container:/
-      shell: bash
-    - name: Install Node.js dependencies
-      run: docker exec puppeteer_container bash -c "npm install --production"
+        docker cp ${{ inputs.app_dir }}/package.json puppeteer_container:/
       shell: bash
     - name: Run index.js
       run: docker exec puppeteer_container bash -c "node index.js"
