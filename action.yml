@@ -18,10 +18,6 @@ runs:
     - name: Copy Node.js app files
       run: |
         docker cp ${{ inputs.app_dir }}/ puppeteer_container:/
-      shell: bash
-    - name: Check node version
-      run: docker exec puppeteer_container node -v
-      shell: bash
-    - name: Run index.js
-      run: docker exec puppeteer_container bash -c "node index.js"
+        docker exec puppeteer_container node -v
+        docker exec puppeteer_container bash -c "node index.js"
       shell: bash
