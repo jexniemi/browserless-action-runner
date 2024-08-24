@@ -8,8 +8,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: "18"
+
+    - name: Install dependencies
+      run: cd example && npm install --production
+
     - name: Run Puppeteer Action
       uses: ./ # Assumes the action is in the root directory of the repository
       with:
-        package_json_dir: './example' # Replace with the directory of your package.json
-        index_file_dir: './example' # Replace with the directory of your index.js
+        start_commands: | 
+          node example/index.js
