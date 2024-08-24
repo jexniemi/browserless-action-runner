@@ -1,11 +1,11 @@
-import puppeteer, { Browser, Page } from 'puppeteer-core';
+import puppeteer, { Browser, Page } from 'puppeteer';
 
 (async () => {
   let browser: Browser;
   let page: Page;
 
   try {
-    browser = await puppeteer.connect({ browserWSEndpoint: 'ws://localhost:3000' });
+    browser = await puppeteer.launch();
     page = await browser.newPage();
     await page.goto('https://example.com');
   

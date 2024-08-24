@@ -9,14 +9,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Pull Docker image
-      run: docker pull ghcr.io/browserless/chromium:v2.18.0
-      shell: bash
-
-    - name: Run Docker container
-      run: docker run --rm -p 3000:3000 --name browserless_container ghcr.io/browserless/chromium:v2.18.0 &
-      shell: bash
-  
     - name: Run input commands
       run: |
         while IFS= read -r cmd; do
