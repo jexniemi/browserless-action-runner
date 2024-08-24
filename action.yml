@@ -1,21 +1,22 @@
-name: puppeteer-master
-description: Run Puppeteer web scraper in headless mode with Node.js
+name: browserless-action-runner
+description: Run Puppeteer or Playwright web scraper in headless mode
 author: jexniemi
 inputs:
-  index_file_path:
-    description: 'index.js file path'
+  start_commands:
+    description: 'Start commands to run'
     required: true
     
 runs:
   using: 'composite'
   steps:
     - name: Pull Docker image
-      run: docker pull ghcr.io/browserless/chromium
-      shell: bash
+      run: docker pull ghcr.io/browserless/chromium:v2.18.0
     - name: Run Docker container
-      run: docker run --rm -p 3000:3000 ghcr.io/browserless/chromium &
-      shell: bash
-    - name: Copy Node.js app files
+      run: docker run --rm -p 3000:3000 --name browserless_container ghcr.io/browserless/chromium:v2.18.0 &
+    - name: Run input files
       run: |
-        node ${{ inputs.index_file_path }}
-      shell: bash
+        for cmd in "${{ inputs.start_commands }}"; do
+          $cmd
+        done
+    - name: Stop Docker container
+      run: docker stop puppeteer_container

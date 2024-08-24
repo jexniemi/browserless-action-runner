@@ -20,4 +20,4 @@ jobs:
     - name: Run Puppeteer Action
       uses: ./ # Assumes the action is in the root directory of the repository
       with:
-        index_file_path: './example/index.js' # Replace with the directory of your package.json
+        start_commands: '["node example/index.js"]'
