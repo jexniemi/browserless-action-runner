@@ -56,7 +56,7 @@ jobs:
       uses: jexniemi/browserless-action-runner@v0.1
       with:
         start_commands: | 
-          node example/index.js
+          node example/build/index.js
 ```
 
 In this example, the start_commands input is a multiline string, with each command on a separate line. These commands are run after the Browserless Docker container is up and running.
