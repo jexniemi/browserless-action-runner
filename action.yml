@@ -17,8 +17,9 @@ runs:
       shell: bash
     - name: Run input files
       run: |
-        for cmd in "${{ inputs.start_commands }}"; do
-          $cmd
+        IFS=',' read -ra cmds <<< "${{ inputs.start_commands }}"
+        for cmd in "${cmds[@]}"; do
+          eval $cmd
         done
       shell: bash
     - name: Stop Docker container
