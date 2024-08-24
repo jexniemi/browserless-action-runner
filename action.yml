@@ -13,7 +13,7 @@ runs:
       run: docker pull ghcr.io/browserless/chromium
       shell: bash
     - name: Run Docker container
-      run: docker run -p -rm 3000:3000 ghcr.io/browserless/chromium &
+      run: docker run --rm -p 3000:3000 ghcr.io/browserless/chromium &
       shell: bash
     - name: Copy Node.js app files
       run: |
