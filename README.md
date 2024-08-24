@@ -55,10 +55,5 @@ jobs:
 
 In this example, the start_commands input is a multiline string, with each command on a separate line. These commands are run after the Browserless Docker container is up and running.
 
-
-## Inputs
-start_commands
-Required The start commands to run. These should be provided as a multiline string, with each command on a separate line.
-
 ## Contributing
 If you have suggestions for how browserless-action-runner could be improved, or want to report a bug, open an issue!
