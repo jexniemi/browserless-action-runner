@@ -27,7 +27,7 @@ const browser = await pw.firefox.connect(
 To use this action, you need to set up a workflow file (e.g., `.github/workflows/main.yml`) in your repository. Here's an example of how to use this action:
 
 ```yml
-name: 
+name: Scrape web
 
 on: [push]
 
