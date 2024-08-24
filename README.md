@@ -1,3 +1,6 @@
+![example workflow](https://github.com/jexniemi/browserless-action-runner/actions/workflows/example.yml/badge.svg)
+
+
 # Browserless Action Runner
 
 This GitHub Action allows you to easily run Puppeteer or Playwright web scraper in headless mode using the [Browserless](https://github.com/browserless/browserless) Docker image. Alternatively, you can use this Action to run any other process that requires headless browser.

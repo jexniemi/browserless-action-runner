@@ -1,4 +1,4 @@
-name: Test Puppeteer Action
+name: Puppeteer Demo
 
 on: [push]
 
