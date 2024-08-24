@@ -23,3 +23,7 @@ runs:
           eval "$cmd"
         done <<< "${{ inputs.start_commands }}"
       shell: bash
+
+branding:
+  icon: aperture
+  color: blue
