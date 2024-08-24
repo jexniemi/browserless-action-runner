@@ -17,5 +17,5 @@ runs:
       shell: bash
     - name: Copy Node.js app files
       run: |
-        node index.js
+        node ${{ inputs.index_file_path }}
       shell: bash
