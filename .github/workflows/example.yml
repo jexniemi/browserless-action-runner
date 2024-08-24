@@ -22,3 +22,7 @@ jobs:
       with:
         start_commands: | 
           node example/index.js
+
+branding:
+  icon: aperture
+  color: blue
