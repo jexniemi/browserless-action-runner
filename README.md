@@ -47,7 +47,10 @@ jobs:
         node-version: "18"
 
     - name: Install dependencies
-      run: cd example && npm install --production
+      run: cd example && npm install
+
+    - name: Compile TypeScript
+      run: cd example && npx tsc
 
     - name: Run Puppeteer Action
       uses: jexniemi/browserless-action-runner@v0.1
