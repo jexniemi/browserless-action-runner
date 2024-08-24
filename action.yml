@@ -1,5 +1,5 @@
 name: browserless-action-runner
-description: Run Puppeteer or Playwright web scraper in headless mode
+description: Run Puppeteer or Playwright web scraper in headless mode, or perform any other browser automation tasks using the browserless/chromium Docker image.
 author: jexniemi
 inputs:
   start_commands:
