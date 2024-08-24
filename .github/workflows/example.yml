@@ -20,4 +20,5 @@ jobs:
     - name: Run Puppeteer Action
       uses: ./ # Assumes the action is in the root directory of the repository
       with:
-        start_commands: '["node example/index.js"]'
+        start_commands: | 
+          node example/index.js

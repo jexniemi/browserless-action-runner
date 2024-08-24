@@ -17,10 +17,9 @@ runs:
       shell: bash
     - name: Run input files
       run: |
-        IFS=',' read -ra cmds <<< "${{ inputs.start_commands }}"
-        for cmd in "${cmds[@]}"; do
-          eval $cmd
-        done
+        while IFS= read -r cmd; do
+          eval "$cmd"
+        done <<< "${{ inputs.start_commands }}"
       shell: bash
     - name: Stop Docker container
       run: docker stop puppeteer_container
