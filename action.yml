@@ -11,12 +11,16 @@ runs:
   steps:
     - name: Pull Docker image
       run: docker pull ghcr.io/browserless/chromium:v2.18.0
+      shell: bash
     - name: Run Docker container
       run: docker run --rm -p 3000:3000 --name browserless_container ghcr.io/browserless/chromium:v2.18.0 &
+      shell: bash
     - name: Run input files
       run: |
         for cmd in "${{ inputs.start_commands }}"; do
           $cmd
         done
+      shell: bash
     - name: Stop Docker container
       run: docker stop puppeteer_container
+      shell: bash
