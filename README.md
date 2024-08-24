@@ -50,7 +50,7 @@ jobs:
       run: cd example && npm install --production
 
     - name: Run Puppeteer Action
-      uses: ./ # Assumes the action is in the root directory of the repository
+      uses: jexniemi/browserless-action-runner@v0.1
       with:
         start_commands: | 
           node example/index.js
