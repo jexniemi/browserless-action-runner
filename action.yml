@@ -2,25 +2,20 @@ name: puppeteer-master
 description: Run Puppeteer web scraper in headless mode with Node.js
 author: jexniemi
 inputs:
-  app_dir:
-    description: 'Directory of package.json'
+  index_file_path:
+    description: 'index.js file path'
     required: true
     
 runs:
   using: 'composite'
   steps:
     - name: Pull Docker image
-      run: docker pull ghcr.io/puppeteer/puppeteer:23.1.0
+      run: docker pull ghcr.io/browserless/chromium
       shell: bash
     - name: Run Docker container
-      run: docker run --init --cap-add=SYS_ADMIN --rm --name puppeteer_container ghcr.io/puppeteer/puppeteer:23.1.0 &
-      shell: bash
-    - name: Print Docker logs
-      run: docker logs puppeteer_container
+      run: docker run -p 3000:3000 ghcr.io/browserless/chromium
       shell: bash
     - name: Copy Node.js app files
       run: |
-        docker cp ${{ inputs.app_dir }}/ puppeteer_container:/
-        docker exec puppeteer_container node -v
-        docker exec puppeteer_container bash -c "node index.js"
+        node index.js
       shell: bash

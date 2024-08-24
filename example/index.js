@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 (async () => {
   try {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ browserWSEndpoint: 'ws://localhost:3000' });
     const page = await browser.newPage();
     await page.goto('https://example.com');
   
