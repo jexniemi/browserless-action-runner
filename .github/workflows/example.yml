@@ -18,7 +18,7 @@ jobs:
       run: cd example && npm install
 
     - name: Compile TypeScript
-      run: cd example && npx tsc
+      run: cd example && npm run build
 
     - name: Run Puppeteer Action
       uses: ./ # Assumes the action is in the root directory of the repository
