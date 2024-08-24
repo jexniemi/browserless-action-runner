@@ -21,6 +21,3 @@ runs:
           eval "$cmd"
         done <<< "${{ inputs.start_commands }}"
       shell: bash
-    - name: Stop Docker container
-      run: docker stop puppeteer_container
-      shell: bash
