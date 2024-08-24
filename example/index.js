@@ -11,7 +11,8 @@ const puppeteer = require('puppeteer');
   
     const h1Text = await page.$eval(elementQuery, el => el.textContent);
   
-    console.log('<H1> text:', h1Text);
+    console.log('Scraping result: <H1> text:', h1Text);
+
     browser.close();
   } catch(e) {
     console.log(e)
